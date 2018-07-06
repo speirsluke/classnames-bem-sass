@@ -41,6 +41,7 @@ You can see an example of country input at [https://semantic-ui.com/modules/drop
 - Add arrow buttons on either side of the popup. Clicking the right button should change current month to next month and left button to previous month. Update the dates displayed on month changes.
 - When the month selected is not the current month, make sure that when the popup opens the month is set to month selected rather than current month.
 
-## Stretch goals
+**Stretch goals**
+
 - Display days of the week as two letters at the top of the popup. Make sure that the dates displayed underneath correspond to days of the week above. Ensure this behaviour is consistent as months change.
 - Create a date range selector which uses two date pickers to allow users to select a start date and an end date. An end date should not be selectable after an end date and an end date should not be selectable before a start date.
