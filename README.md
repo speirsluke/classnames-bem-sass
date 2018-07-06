@@ -33,7 +33,7 @@ You can see an example of country input at [https://semantic-ui.com/modules/drop
 - Create a `Datepicker` component. It should have 2 parts
   - A text input which displays the date selected
   - A popup div underneath which displays a list of dates for current month
-- When the component receives a blur event display the popup div underneath it. Hide the popup when component receives a blur event.
+- When the component receives a `focus` event display the popup div underneath it. Hide the popup when component receives a `blur` event.
 - Display current month name and a list of dates for current month in the popup. You may want to use the `moment` library to help you.
 - When a date in popup is clicked display the date selected date in the text input part of the component in 'DD-MM-YYYY' format.
 - When the input already has a date value, display the date in popup with a dark background
