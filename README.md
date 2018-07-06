@@ -22,7 +22,7 @@ We will create a small UI library here which will use classnames, BEM and Sass f
 
 **Stretch goals**
 
-- When the `CountrySelector` is in focus and the country list is displayed, allow the user to navigate the list of countries using the up and down arrows.
+- When the `CountrySelector` is in focus and the country list is displayed, allow the user to navigate the list of countries using the up and down arrows. You may want to listen for a `keyDown` event to detect arrow presses.
 - Allow the user to pick a country selected using above by pressing the 'Enter' key.
 - Allow the user to filter the list of countries displayed using by the text entered into the input and implement it using a filter method
 
