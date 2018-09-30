@@ -1,5 +1,5 @@
 import React from 'react';
-import NumbersOnly from './NumbersOnly';
+import Navigation from './Navigation';
 
 class App extends React.Component {
   constructor(){
@@ -9,7 +9,7 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        <NumbersOnly />
+        <Navigation />
       </div>
     )
   }

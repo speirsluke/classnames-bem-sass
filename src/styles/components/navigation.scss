@@ -1,0 +1,29 @@
+@import '../base/colours';
+
+.navigation {
+  border: 1px solid $border-color;
+  background-color: #eee;
+  padding: 10px;
+
+  &__link {
+    display: block;
+    border: 1px solid $border-color;
+    padding: 10px;
+    margin: 5px;
+    background-color: #FFF
+  }
+
+  &__link:hover {
+    background-color: #DDD;
+  }
+
+  &__list {
+    display: none;
+    list-style: none;
+
+    /* display the navigation item list as open */
+    &--open {
+      display: block;
+    }
+  }
+}
