@@ -68,6 +68,7 @@ class App extends React.Component {
         <Results
           resultsArr={this.state.resultsArray}
           displayResultsText={this.displayResultsText}
+          entity={this.state.searchEntity}
         />
       </div>
     );

@@ -7,7 +7,11 @@ class Results extends React.Component {
         <h1>{this.props.displayResultsText}</h1>
         {this.props.resultsArr.map(album => {
           return (
-            <Result key={this.props.resultsArr.indexOf(album)} album={album} />
+            <Result
+              entity={this.props.entity}
+              key={this.props.resultsArr.indexOf(album)}
+              album={album}
+            />
           );
         })}
       </div>

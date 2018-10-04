@@ -29,12 +29,20 @@ class Search extends React.Component {
 
   clickHandle(event) {
     // console.log(event.target.dataset.entity);
-    this.setState({
-      inputPlaceholder: event.target.placeholder,
-      searchEntity: event.target.value
-      // searchAttribute: event.target.attribute
-    });
-    console.log(this.state.searchEntity);
+    this.setState(
+      {
+        inputPlaceholder: event.target.placeholder,
+        searchEntity: event.target.value
+        // searchAttribute: event.target.attribute
+      },
+      () => {
+        console.log(this.state.searchEntity);
+        this.props.extractSearch(
+          this.state.searchValue,
+          this.state.searchEntity
+        );
+      }
+    );
   }
 
   render() {
@@ -46,7 +54,7 @@ class Search extends React.Component {
               type="radio"
               id="artist"
               name="filter"
-              value="artistTerm"
+              value="musicArtist"
               attribute="artistTerm"
               placeholder="Search for an artist..."
               defaultChecked
