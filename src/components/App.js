@@ -66,6 +66,7 @@ class App extends React.Component {
           <div className="result-string" />
         </div>
         <Results
+          searchValue={this.state.musicSearch}
           resultsArr={this.state.resultsArray}
           displayResultsText={this.displayResultsText}
           entity={this.state.searchEntity}

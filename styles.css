@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  background-color: darkolivegreen;
+  background-color: #c594db41;
 }
 .search-grid {
   display: grid;
@@ -36,10 +36,10 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-column: 2;
-  color: white;
+  color: lightskyblue;
   border: solid;
   border-radius: 12px;
-  border-color: lightsalmon;
+  border-color: purple;
   text-align: center;
 }
 
@@ -68,7 +68,7 @@
 .more {
   margin-top: 15px;
   justify-self: center;
-  background-color: lightblue;
+  background-color: purple;
 
   border: solid;
   border-radius: 12px;

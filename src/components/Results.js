@@ -11,6 +11,7 @@ class Results extends React.Component {
               entity={this.props.entity}
               key={this.props.resultsArr.indexOf(album)}
               album={album}
+              searchValue={this.props.searchValue}
             />
           );
         })}

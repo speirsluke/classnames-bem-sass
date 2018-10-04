@@ -14,6 +14,8 @@ class Result extends React.Component {
           <Details
             key={this.props.album.collectionID}
             album={this.props.album}
+            entity={this.props.entity}
+            searchValue={this.props.searchValue}
           />
         </div>
       );
@@ -28,6 +30,8 @@ class Result extends React.Component {
           <Details
             key={this.props.album.collectionID}
             album={this.props.album}
+            entity={this.props.entity}
+            searchValue={this.props.searchValue}
           />
         </div>
       );
@@ -39,6 +43,8 @@ class Result extends React.Component {
           <Details
             key={this.props.album.collectionID}
             album={this.props.album}
+            entity={this.props.entity}
+            searchValue={this.props.searchValue}
           />
         </div>
       );
