@@ -16,16 +16,21 @@ class Details extends React.Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
+        filteredArtwork = data.results.filter(album => {
+          if (album.artistId === this.props.artistId) {
+            return album.collectionViewUrl;
+          }
+        });
         this.setState({
-          albumArray: data.results.map(album => {
-            if (album.artistId === this.props.artistId) {
-              return album.collectionViewUrl;
-            }
+          albumArray: filteredArtwork.map(cover => {
+            return cover;
           })
         });
       });
   }
+  //dont set state as it will Re-render
+  //MOVE TO RESULT
+  callArtworkFetch(artistName) {}
 
   handleClick(event) {
     event.preventDefault();

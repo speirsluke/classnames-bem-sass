@@ -45,6 +45,7 @@ class Result extends React.Component {
             album={this.props.album}
             entity={this.props.entity}
             searchValue={this.props.searchValue}
+            artistId={this.props.album.artistId}
           />
         </div>
       );
