@@ -8,30 +8,6 @@ class Details extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  albumArtworkFetch(artistName) {
-    fetch(
-      `https://itunes.apple.com/search?term=${artistName}&media=music&entity=album&limit=10`
-    )
-      .then(function(response) {
-        return response.json();
-      })
-      .then(data => {
-        filteredArtwork = data.results.filter(album => {
-          if (album.artistId === this.props.artistId) {
-            return album.collectionViewUrl;
-          }
-        });
-        this.setState({
-          albumArray: filteredArtwork.map(cover => {
-            return cover;
-          })
-        });
-      });
-  }
-  //dont set state as it will Re-render
-  //MOVE TO RESULT
-  callArtworkFetch(artistName) {}
-
   handleClick(event) {
     event.preventDefault();
 

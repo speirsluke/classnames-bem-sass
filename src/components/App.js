@@ -6,9 +6,10 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      musicSearch: "Lavender Hills",
+      musicSearch: "Lavender hills",
       resultsArray: [],
-      searchEntity: "musicArtist"
+      searchEntity: "musicArtist",
+      resultsLimit: 10
     };
 
     this.artistFetch = this.artistFetch.bind(this);
@@ -42,19 +43,16 @@ class App extends React.Component {
         musicSearch: searchValue,
         searchEntity: entity
       },
-      () => this.artistFetch(this.state.musicSearch, this.state.searchEntity)
+      () =>
+        this.artistFetch(
+          this.state.musicSearch,
+          this.state.searchEntity,
+          this.state.resultsLimit
+        )
     );
 
     let displayResultsText = `Showing results for ${this.state.musicSearch}`;
   }
-
-  // recieveFilter(filterValue){
-
-  // }
-
-  // recieveInputPlaceholder(searchPlaceholder){
-
-  // }
 
   render() {
     return (

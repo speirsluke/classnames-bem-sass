@@ -12,6 +12,7 @@ class Results extends React.Component {
               key={this.props.resultsArr.indexOf(album)}
               album={album}
               searchValue={this.props.searchValue}
+              artistName={album.artistName}
             />
           );
         })}
