@@ -137,3 +137,11 @@ a:hover {
   border-width: 0px;
   justify-self: center;
 }
+
+.load-more {
+  display: none;
+}
+
+.load-more--display {
+  display: block;
+}

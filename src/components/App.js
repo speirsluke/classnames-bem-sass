@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "./Search";
 import Results from "./Results";
+import cx from "classnames";
 
 class App extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class App extends React.Component {
     this.state = {
       musicSearch: "",
       resultsArray: [],
-      searchEntity: "",
+      searchEntity: "musicArtist",
       resultsLimit: 10,
       favourites: []
     };
@@ -76,6 +77,9 @@ class App extends React.Component {
   }
 
   render() {
+    const loadClassSwitch = cx("load-more", {
+      "load-more--display": this.state.moreOn == true
+    });
     return (
       <div className="grid">
         <div className="navbar">MusicDictionary.com</div>
