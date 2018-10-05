@@ -3,7 +3,7 @@ import cx from "classnames";
 class Details extends React.Component {
   constructor() {
     super();
-    this.state = { info: {}, detailsOn: false, albumArray: [] };
+    this.state = { info: {}, detailsOn: false, albumArray: [], musicVideo: "" };
 
     this.handleClick = this.handleClick.bind(this);
   }
@@ -14,6 +14,23 @@ class Details extends React.Component {
     this.setState({
       detailsOn: !this.state.detailsOn
     });
+  }
+
+  componentDidMount() {
+    fetch(
+      `https://itunes.apple.com/search?term=${
+        this.props.searchValue
+      }&entity=musicVideo&limit=10`
+    )
+      .then(function(response) {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.setState({
+          musicVideo: data.results.previewURL
+        });
+      });
   }
 
   render() {
@@ -31,6 +48,14 @@ class Details extends React.Component {
           </div>
 
           <div className={buttonClassSwitch}>
+            <video
+              className="music-video"
+              height="150px"
+              width="150px"
+              controls
+            >
+              <source src={this.state.musicVideo} type="mp4" />
+            </video>
             <p>Genre: {this.props.album.primaryGenreName}</p>
             <p>Released: {this.props.album.releaseDate}</p>
             <p>{this.props.album.copyright}</p>
@@ -49,6 +74,7 @@ class Details extends React.Component {
 
           <div className={buttonClassSwitch}>
             <p>Genre: {this.props.album.primaryGenreName}</p>
+            <p>Tracks: {this.props.album.trackCount}</p>
             <p>Released: {this.props.album.releaseDate}</p>
             <p>{this.props.album.copyright}</p>
             <a href={this.props.album.collectionViewUrl}>

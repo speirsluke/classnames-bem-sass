@@ -18,8 +18,6 @@ class Result extends React.Component {
         return response.json();
       })
       .then(data => {
-        console.log(data.results[0].urls.regular);
-
         this.setState({
           artistImage: data.results[0].urls.regular
         });
@@ -28,13 +26,14 @@ class Result extends React.Component {
   render() {
     if (this.props.entity == "song") {
       return (
-        <div className="results">
+        <div className="results hvr-grow">
           <h2>
             ' {this.props.album.trackName}'<br />
             from '{this.props.album.collectionName}'<br />
             by {this.props.album.artistName}
           </h2>
           <img className="result-image" src={this.props.album.artworkUrl100} />
+
           <Details
             key={this.props.album.collectionID}
             album={this.props.album}
@@ -45,7 +44,7 @@ class Result extends React.Component {
       );
     } else if (this.props.entity == "album") {
       return (
-        <div className="results">
+        <div className="results hvr-grow">
           <h2>
             '{this.props.album.collectionName}'<br />
             by {this.props.album.artistName}
@@ -61,7 +60,7 @@ class Result extends React.Component {
       );
     } else if (this.props.entity == "musicArtist") {
       return (
-        <div className="results">
+        <div className="results hvr-grow">
           <h2>{this.props.album.artistName}</h2>
           <img className="artist-image" src={this.state.artistImage} />
 

@@ -6,7 +6,7 @@ class Search extends React.Component {
     this.state = {
       searchValue: "",
       inputPlaceholder: "Search for an artist...",
-      searchEntity: "album"
+      searchEntity: ""
     };
 
     this.changeHandle = this.changeHandle.bind(this);

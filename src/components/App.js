@@ -6,23 +6,44 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      musicSearch: "Lavender hills",
+      musicSearch: "",
       resultsArray: [],
-      searchEntity: "musicArtist",
-      resultsLimit: 10
+      searchEntity: "",
+      resultsLimit: 10,
+      favourites: []
     };
 
     this.artistFetch = this.artistFetch.bind(this);
     this.recieveSearch = this.recieveSearch.bind(this);
+    this.moreResultsHandleClick = this.moreResultsHandleClick.bind(this);
   }
 
   componentDidMount() {
-    this.artistFetch(this.state.musicSearch, this.state.searchEntity);
+    this.artistFetch(
+      this.state.musicSearch,
+      this.state.searchEntity,
+      this.state.resultsLimit
+    );
   }
 
-  artistFetch(artistName, entity) {
+  moreResultsHandleClick(event) {
+    event.preventDefault();
+    this.setState(
+      {
+        resultsLimit: (this.state.resultsLimit += 10)
+      },
+      () =>
+        this.artistFetch(
+          this.state.musicSearch,
+          this.state.searchEntity,
+          this.state.resultsLimit
+        )
+    );
+  }
+
+  artistFetch(artistName, entity, limit) {
     fetch(
-      `https://itunes.apple.com/search?term=${artistName}&media=music&entity=${entity}&limit=10`
+      `https://itunes.apple.com/search?term=${artistName}&media=music&entity=${entity}&limit=${limit}`
     )
       .then(function(response) {
         return response.json();
@@ -57,6 +78,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="grid">
+        <div className="navbar">MusicDictionary.com</div>
         <div className="search-grid">
           <Search extractSearch={this.recieveSearch} />
         </div>
@@ -69,6 +91,9 @@ class App extends React.Component {
           displayResultsText={this.displayResultsText}
           entity={this.state.searchEntity}
         />
+        <button className="more-results" onClick={this.moreResultsHandleClick}>
+          Load more results...
+        </button>
       </div>
     );
   }
