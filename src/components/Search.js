@@ -4,7 +4,7 @@ class Search extends React.Component {
   constructor() {
     super();
     this.state = {
-      searchValue: "",
+      searchValue: "Lavender hills",
       inputPlaceholder: "Search for an artist...",
       searchEntity: "musicArtist"
     };

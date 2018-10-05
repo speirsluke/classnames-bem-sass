@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      musicSearch: "",
+      musicSearch: "Lavender hills",
       resultsArray: [],
       searchEntity: "musicArtist",
       resultsLimit: 10,
@@ -82,7 +82,7 @@ class App extends React.Component {
     });
     return (
       <div className="grid">
-        <div className="navbar">MusicDictionary.com</div>
+        <div className="navbar">MusicQuery.com</div>
         <div className="search-grid">
           <Search extractSearch={this.recieveSearch} />
         </div>
