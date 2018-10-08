@@ -16,7 +16,7 @@ class Details extends React.Component {
     });
   }
 
-  componentDidMount() {
+  musicVideoFetch() {
     fetch(
       `https://itunes.apple.com/search?term=${
         this.props.searchValue
@@ -28,9 +28,14 @@ class Details extends React.Component {
       .then(data => {
         console.log(data);
         this.setState({
-          musicVideo: data.results.previewURL
+          musicVideo: data.results.previewUrl,
+          detailsOn: false
         });
       });
+  }
+
+  componentDidMount() {
+    this.musicVideoFetch();
   }
 
   render() {
@@ -42,7 +47,7 @@ class Details extends React.Component {
       return (
         <div className="details-grid">
           <div className="more">
-            <button onClick={this.handleClick}>
+            <button className="more-button" onClick={this.handleClick}>
               {this.state.detailsOn ? "Less" : "More"}
             </button>
           </div>
@@ -67,7 +72,7 @@ class Details extends React.Component {
       return (
         <div className="details-grid">
           <div className="more">
-            <button onClick={this.handleClick}>
+            <button className="more-button" onClick={this.handleClick}>
               {this.state.detailsOn ? "Less" : "More"}
             </button>
           </div>
@@ -87,7 +92,7 @@ class Details extends React.Component {
       return (
         <div className="details-grid">
           <div className="more">
-            <button onClick={this.handleClick}>
+            <button className="more-button" onClick={this.handleClick}>
               {this.state.detailsOn ? "Less" : "More"}
             </button>
           </div>

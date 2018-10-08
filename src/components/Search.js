@@ -97,3 +97,12 @@ class Search extends React.Component {
 }
 
 export default Search;
+
+// Application name:	music
+// API key:	a97af399151dcc953d53f73728e2169a
+// Shared secret:	fa4c6b5fa6c7aff6fa5ae17c5d8b4bba
+// Registered to:	speirsluke
+
+//theaudiodb apiKey=195003
+
+//guardian API key=d47c66df-325b-461c-ab43-4c117df9db23

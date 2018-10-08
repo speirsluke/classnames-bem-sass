@@ -2,6 +2,7 @@ import React from "react";
 import Search from "./Search";
 import Results from "./Results";
 import cx from "classnames";
+import Modal from "./Modal/Modal";
 
 class App extends React.Component {
   constructor() {
@@ -11,12 +12,20 @@ class App extends React.Component {
       resultsArray: [],
       searchEntity: "musicArtist",
       resultsLimit: 10,
-      favourites: []
+      favourites: [],
+      show: false
     };
 
     this.artistFetch = this.artistFetch.bind(this);
     this.recieveSearch = this.recieveSearch.bind(this);
     this.moreResultsHandleClick = this.moreResultsHandleClick.bind(this);
+    this.showModal = this.showModal.bind(this);
+  }
+
+  showModal() {
+    this.setState({
+      show: !this.state.show
+    });
   }
 
   componentDidMount() {
@@ -63,7 +72,8 @@ class App extends React.Component {
     this.setState(
       {
         musicSearch: searchValue,
-        searchEntity: entity
+        searchEntity: entity,
+        resultsLimit: 10
       },
       () =>
         this.artistFetch(
@@ -83,6 +93,11 @@ class App extends React.Component {
     return (
       <div className="grid">
         <div className="navbar">MusicQuery.com</div>
+
+        <input type="button" onClick={this.showModal} value="Show Modal" />
+        <Modal onClose={this.showModal} show={this.state.show}>
+          Modal message
+        </Modal>
         <div className="search-grid">
           <Search extractSearch={this.recieveSearch} />
         </div>
@@ -95,7 +110,11 @@ class App extends React.Component {
           displayResultsText={this.displayResultsText}
           entity={this.state.searchEntity}
         />
-        <button className="more-results" onClick={this.moreResultsHandleClick}>
+
+        <button
+          className={loadClassSwitch}
+          onClick={this.moreResultsHandleClick}
+        >
           Load more results...
         </button>
       </div>
